@@ -78,7 +78,7 @@ broken into numerous functions. But not with QCoro, where you can simply `co_awa
 `QNetworkReply` to finish:
 
 ```cpp
-QNetworkReply qnam;
+QNetworkAccessManager qnam;
 QNetworkReply *reply = qnam.get(QStringLiteral("https://github.com/qcoro/qcoro"));
 const auto contents = co_await reply;
 reply->deleteLater();
