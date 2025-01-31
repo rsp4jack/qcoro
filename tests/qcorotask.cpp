@@ -395,6 +395,12 @@ private:
         QCOMPARE(result, QStringLiteral("42"));
     }
 
+    void testReturnValueImplicitConversion(QCoro::TestContext) {
+        const auto testcoro [[maybe_unused]] = []() -> QCoro::Task<int> {
+            co_return 42LL;
+        };
+    }
+
     QCoro::Task<> testMultipleAwaiters_coro(QCoro::TestContext) {
         auto task = timer(100ms);
 
